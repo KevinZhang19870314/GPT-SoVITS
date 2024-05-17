@@ -165,7 +165,7 @@ class TTS_Request(BaseModel):
     """推理时需要加载的声音模型的yaml配置文件路径，如：GPT_SoVITS/configs/tts_infer.yaml"""
 
 
-@lru_cache(maxsize=10)
+@lru_cache(maxsize=3)
 def get_tts_instance(tts_config: TTS_Config) -> TTS:
     print(f"load tts config from {tts_config.configs_path}")
     return TTS(tts_config)
